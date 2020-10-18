@@ -13,9 +13,11 @@
 <body>
 <div class="container">
     <div class="row">
+        <a href="<c:url value='/create'/>">Добавить инцидент</a>
         <table class="table table-striped">
             <c:forEach items="${accidents}" var="accident">
                 <tr>
+                    <td><a href="<c:url value='/edit/${accident.value.id}'/>">Редактировать инцидент</a></td>
                     <td><c:out value="${accident.value.id}"/></td>
                     <td><c:out value="${accident.value.name}"/></td>
                     <td><c:out value="${accident.value.text}"/></td>
