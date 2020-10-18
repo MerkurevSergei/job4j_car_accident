@@ -14,9 +14,12 @@
 <div class="container">
     <div class="row">
         <table class="table table-striped">
-            <c:forEach items="${list}" var="element">
+            <c:forEach items="${accidents}" var="accident">
                 <tr>
-                    <td><c:out value="${element}"/></td>
+                    <td><c:out value="${accident.value.id}"/></td>
+                    <td><c:out value="${accident.value.name}"/></td>
+                    <td><c:out value="${accident.value.text}"/></td>
+                    <td><c:out value="${accident.value.address}"/></td>
                 </tr>
             </c:forEach>
         </table>
