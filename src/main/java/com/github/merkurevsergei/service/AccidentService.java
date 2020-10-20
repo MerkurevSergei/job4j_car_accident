@@ -2,7 +2,7 @@ package com.github.merkurevsergei.service;
 
 import com.github.merkurevsergei.model.Accident;
 import com.github.merkurevsergei.model.AccidentType;
-import com.github.merkurevsergei.repository.AccidentsMem;
+import com.github.merkurevsergei.repository.AccidentJdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -12,10 +12,10 @@ import java.util.Optional;
 
 @Service
 public class AccidentService {
-    private final AccidentsMem accidents;
     private final Map<Integer, AccidentType> types;
+    private final AccidentJdbcTemplate accidents;
 
-    public AccidentService(AccidentsMem accidents) {
+    public AccidentService(AccidentJdbcTemplate accidents) {
         this.accidents = accidents;
         create(new Accident(0,
                 "Персона 1",
@@ -39,15 +39,16 @@ public class AccidentService {
     }
 
     public Accident findById(int id) {
-        return accidents.findById(id);
+        return null;
+//                accidents.findById(id);
     }
 
     public void create(Accident accident) {
-        accidents.create(accident);
+        accidents.save(accident);
     }
 
     public Object findAll() {
-        return accidents.getAccidents();
+        return accidents.getAll();
     }
 
     public Collection<AccidentType> getTypes() {
