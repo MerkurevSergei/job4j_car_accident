@@ -22,6 +22,7 @@
                     <td><c:out value="${accident.value.name}"/></td>
                     <td><c:out value="${accident.value.text}"/></td>
                     <td><c:out value="${accident.value.address}"/></td>
+                    <td><c:out value="${accident.value.type.name}"/></td>
                 </tr>
             </c:forEach>
         </table>

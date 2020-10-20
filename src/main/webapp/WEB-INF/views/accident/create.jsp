@@ -29,6 +29,15 @@
             </label></td>
         </tr>
         <tr>
+            <td><label>
+                <select name='type.id'>
+                    <c:forEach items='${types}' var='type' >
+                        <option value='${type.id}'>${type.name}</option>
+                    </c:forEach>
+                </select></label>
+            </td>
+        </tr>
+        <tr>
             <td colspan='2'><input name="submit" type="submit" value="Сохранить"/></td>
         </tr>
     </table>

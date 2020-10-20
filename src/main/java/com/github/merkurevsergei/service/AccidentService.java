@@ -1,6 +1,7 @@
 package com.github.merkurevsergei.service;
 
 import com.github.merkurevsergei.model.Accident;
+import com.github.merkurevsergei.model.AccidentType;
 import com.github.merkurevsergei.repository.AccidentsMem;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +11,21 @@ public class AccidentService {
 
     public AccidentService(AccidentsMem accidents) {
         this.accidents = accidents;
-        create(new Accident(1, "Персона 1", "Accident 1", "Street 1"));
-        create(new Accident(2, "Person 2", "Accident 2", "Street 2"));
-        create(new Accident(3, "Person 3", "Accident 3", "Street 3"));
+        create(new Accident(0,
+                "Персона 1",
+                "Accident 1",
+                "Street 1",
+                AccidentType.of(1, "Две машины")));
+        create(new Accident(1,
+                "Person 2",
+                "Accident 2",
+                "Street 2",
+                AccidentType.of(1, "Две машины")));
+        create(new Accident(2,
+                "Person 3",
+                "Accident 3",
+                "Street 3",
+                AccidentType.of(1, "Две машины")));
     }
 
     public Accident findById(int id) {
