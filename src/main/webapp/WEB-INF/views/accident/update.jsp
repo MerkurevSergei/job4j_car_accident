@@ -38,6 +38,15 @@
             </td>
         </tr>
         <tr>
+            <td><label>
+                <select name="ruleIds" multiple>
+                    <c:forEach var="rule" items="${rules}" >
+                        <option value="${rule.id}">${rule.name}</option>
+                    </c:forEach>
+                </select></label>
+            </td>
+        </tr>
+        <tr>
             <td colspan='2'><input name="submit" type="submit" value="Сохранить"/></td>
         </tr>
     </table>
