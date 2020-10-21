@@ -5,9 +5,15 @@ import com.github.merkurevsergei.model.AccidentType;
 import com.github.merkurevsergei.repository.AccidentsMem;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
 @Service
 public class AccidentService {
     private final AccidentsMem accidents;
+    private final Map<Integer, AccidentType> types;
 
     public AccidentService(AccidentsMem accidents) {
         this.accidents = accidents;
@@ -26,6 +32,10 @@ public class AccidentService {
                 "Accident 3",
                 "Street 3",
                 AccidentType.of(1, "Две машины")));
+        types = new HashMap<>();
+        types.put(0, AccidentType.of(0, "Две машины"));
+        types.put(1, AccidentType.of(1, "Машина и человек"));
+        types.put(2, AccidentType.of(2, "Машина и велосипед"));
     }
 
     public Accident findById(int id) {
@@ -38,5 +48,18 @@ public class AccidentService {
 
     public Object findAll() {
         return accidents.getAccidents();
+    }
+
+    public Collection<AccidentType> getTypes() {
+        return types.values();
+    }
+
+    public Optional<AccidentType> findTypeById(int id) {
+        return Optional.ofNullable(types.get(id));
+    }
+
+    public void updateRelations(Accident accident) {
+        Optional<AccidentType> optAccidentType = findTypeById(accident.getType().getId());
+        optAccidentType.ifPresent(accident::setType);
     }
 }
