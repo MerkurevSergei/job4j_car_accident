@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Rule {
+public class AccidentRule {
     @EqualsAndHashCode.Include
     private int id;
     private String name;
 
-    public static Rule of(int id, String name) {
-        Rule rule = new Rule();
+    public static AccidentRule of(int id, String name) {
+        AccidentRule rule = new AccidentRule();
         rule.id = id;
         rule.name = name;
         return rule;

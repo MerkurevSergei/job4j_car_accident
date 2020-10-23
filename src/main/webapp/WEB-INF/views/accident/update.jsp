@@ -7,7 +7,8 @@
         <tr>
             <td>Номер:</td>
             <td><label>
-                <input type='text' name='id' value='${accident.id}'>
+                <input type='text' name='id' value='${accident.id}' hidden="hidden">
+                ${accident.id}
             </label></td>
         </tr>
         <tr>

@@ -15,18 +15,27 @@
     <div class="row">
         <a href="<c:url value='/create'/>">Добавить инцидент</a>
         <table class="table table-striped">
+            <tr>
+                <th>Редактирование</th>
+                <th>Номер</th>
+                <th>Наименование</th>
+                <th>Описание</th>
+                <th>Адрес</th>
+                <th>Тип</th>
+                <th>Нарушения</th>
+            </tr>
             <c:forEach items="${accidents}" var="accident">
                 <tr>
-                    <td><a href="<c:url value='/update?id=${accident.value.id}'/>">Редактировать инцидент</a></td>
-                    <td><c:out value="${accident.value.id}"/></td>
-                    <td><c:out value="${accident.value.name}"/></td>
-                    <td><c:out value="${accident.value.text}"/></td>
-                    <td><c:out value="${accident.value.address}"/></td>
-                    <td><c:out value="${accident.value.type.name}"/></td>
+                    <td><a href="<c:url value='/update?id=${accident.id}'/>">Редактировать инцидент</a></td>
+                    <td><c:out value="${accident.id}"/></td>
+                    <td><c:out value="${accident.name}"/></td>
+                    <td><c:out value="${accident.text}"/></td>
+                    <td><c:out value="${accident.address}"/></td>
+                    <td><c:out value="${accident.type.name}"/></td>
                     <td>
-                    <c:forEach var="rule" items="${accident.value.rules}" >
-                        <c:out value="${rule.name}"/><br>
-                    </c:forEach>
+                        <c:forEach var="rule" items="${accident.rules}">
+                            <c:out value="${rule.name}"/><br>
+                        </c:forEach>
                     </td>
                 </tr>
             </c:forEach>

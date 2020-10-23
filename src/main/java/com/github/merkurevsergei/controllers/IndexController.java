@@ -1,7 +1,5 @@
 package com.github.merkurevsergei.controllers;
 
-import com.github.merkurevsergei.model.Accident;
-import com.github.merkurevsergei.repository.AccidentsMem;
 import com.github.merkurevsergei.service.AccidentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +15,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("accidents", accidentService.findAll());
+        model.addAttribute("accidents", accidentService.findAllAccidents());
         return "index";
     }
 }
