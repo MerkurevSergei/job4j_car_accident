@@ -26,6 +26,8 @@
 
     <module name="TreeWalker">
 
+        <module name="SuppressionCommentFilter" />
+
         <module name="DeclarationOrder"/>
 
         <module name="EmptyLineSeparator">

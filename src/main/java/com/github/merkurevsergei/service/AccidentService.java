@@ -3,6 +3,7 @@ package com.github.merkurevsergei.service;
 import com.github.merkurevsergei.model.Accident;
 import com.github.merkurevsergei.model.AccidentType;
 import com.github.merkurevsergei.model.AccidentRule;
+import com.github.merkurevsergei.repository.AccidentJPA;
 import com.github.merkurevsergei.repository.AccidentJdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,9 @@ import java.util.Optional;
 
 @Service
 public class AccidentService {
-    private final AccidentJdbcTemplate accidentsDAO;
+    private final AccidentJPA accidentsDAO;
 
-    public AccidentService(AccidentJdbcTemplate accidentsDAO) {
+    public AccidentService(AccidentJPA accidentsDAO) {
         this.accidentsDAO = accidentsDAO;
     }
 
