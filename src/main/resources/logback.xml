@@ -8,6 +8,18 @@
         </encoder>
     </appender>
 
+    <logger name="org.hibernate" level="WARN" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="org.apache" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="hql.parser" level="ERROR" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
     <root level="debug">
         <appender-ref ref="STDOUT" />
     </root>
